@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.ApplicationModel;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -50,18 +45,18 @@ namespace AccentResources
                 UISettings = null;
 
                 var theme = Application.Current == null ? ApplicationTheme.Dark : Application.Current.RequestedTheme;
-                
-                if(theme == ApplicationTheme.Light)
-                { 
+
+                if (theme == ApplicationTheme.Light)
+                {
                     BackgroundColor = Colors.White;
                     ForegroundColor = Colors.Black;
                 }
-                else if(theme == ApplicationTheme.Dark)
+                else if (theme == ApplicationTheme.Dark)
                 {
                     BackgroundColor = Colors.Black;
                     ForegroundColor = Colors.White;
                 }
-                
+
                 object accentColorObj;
 
                 if (Application.Current != null &&
@@ -100,16 +95,16 @@ namespace AccentResources
         {
             if (UISettings == null) return;
 
-            BackgroundColor   = UISettings.GetColorValue(UIColorType.Background);
-            ForegroundColor   = UISettings.GetColorValue(UIColorType.Foreground);
-            AccentDark3Color  = UISettings.GetColorValue(UIColorType.AccentDark3);
-            AccentDark2Color  = UISettings.GetColorValue(UIColorType.AccentDark2);
-            AccentDark1Color  = UISettings.GetColorValue(UIColorType.AccentDark1);
-            AccentColor       = UISettings.GetColorValue(UIColorType.Accent);
+            BackgroundColor = UISettings.GetColorValue(UIColorType.Background);
+            ForegroundColor = UISettings.GetColorValue(UIColorType.Foreground);
+            AccentDark3Color = UISettings.GetColorValue(UIColorType.AccentDark3);
+            AccentDark2Color = UISettings.GetColorValue(UIColorType.AccentDark2);
+            AccentDark1Color = UISettings.GetColorValue(UIColorType.AccentDark1);
+            AccentColor = UISettings.GetColorValue(UIColorType.Accent);
             AccentLight1Color = UISettings.GetColorValue(UIColorType.AccentLight1);
             AccentLight2Color = UISettings.GetColorValue(UIColorType.AccentLight2);
             AccentLight3Color = UISettings.GetColorValue(UIColorType.AccentLight3);
-            
+
             try
             {
                 ComplementColor = UISettings.GetColorValue(UIColorType.Complement);
@@ -118,15 +113,15 @@ namespace AccentResources
             // If this gets hit, just invert the color. This is not actually a good option.
             catch (ArgumentException)
             {
-                ComplementColor = Color.FromArgb(0xFF, 
-                    (byte)(0xFF - AccentColor.R), 
-                    (byte)(0xFF - AccentColor.G), 
+                ComplementColor = Color.FromArgb(0xFF,
+                    (byte)(0xFF - AccentColor.R),
+                    (byte)(0xFF - AccentColor.G),
                     (byte)(0xFF - AccentColor.B));
             }
         }
 
         #region Color Dependency Properties
-        
+
         public Color BackgroundColor
         {
             get { return (Color)GetValue(BackgroundColorProperty); }
@@ -136,7 +131,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for BackgroundColor.  This enables animation, styling, binding, etc...
         public static DependencyProperty BackgroundColorProperty { get; } =
             DependencyProperty.Register(nameof(BackgroundColor), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color ForegroundColor
         {
             get { return (Color)GetValue(ForegroundColorProperty); }
@@ -146,7 +141,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for ForegroundColor.  This enables animation, styling, binding, etc...
         public static DependencyProperty ForegroundColorProperty { get; } =
             DependencyProperty.Register(nameof(ForegroundColor), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentDark3Color
         {
             get { return (Color)GetValue(AccentDark3ColorProperty); }
@@ -156,7 +151,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentDark3Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentDark3ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentDark3Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentDark2Color
         {
             get { return (Color)GetValue(AccentDark2ColorProperty); }
@@ -166,7 +161,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentDark2Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentDark2ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentDark2Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentDark1Color
         {
             get { return (Color)GetValue(AccentDark1ColorProperty); }
@@ -176,7 +171,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentDark1Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentDark1ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentDark1Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentColor
         {
             get { return (Color)GetValue(AccentColorProperty); }
@@ -186,7 +181,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentColor.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentColor), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentLight1Color
         {
             get { return (Color)GetValue(AccentLight1ColorProperty); }
@@ -196,7 +191,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentLight1Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentLight1ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentLight1Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentLight2Color
         {
             get { return (Color)GetValue(AccentLight2ColorProperty); }
@@ -206,7 +201,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentLight2Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentLight2ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentLight2Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color AccentLight3Color
         {
             get { return (Color)GetValue(AccentLight3ColorProperty); }
@@ -216,7 +211,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for AccentLight3Color.  This enables animation, styling, binding, etc...
         public static DependencyProperty AccentLight3ColorProperty { get; } =
             DependencyProperty.Register(nameof(AccentLight3Color), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
+
         public Color ComplementColor
         {
             get { return (Color)GetValue(ComplementColorProperty); }
@@ -226,7 +221,7 @@ namespace AccentResources
         // Using a DependencyProperty as the backing store for ComplementaryColor.  This enables animation, styling, binding, etc...
         public static DependencyProperty ComplementColorProperty { get; } =
             DependencyProperty.Register(nameof(ComplementColor), typeof(Color), typeof(AccentProvider), new PropertyMetadata(0));
-        
-        #endregion
+
+        #endregion Color Dependency Properties
     }
 }

@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:AccentResources">
 
@@ -18,5 +18,4 @@
     <SolidColorBrush x:Key="AccentDark1Brush" Color="{Binding Source={StaticResource AccentProvider}, Path=AccentDark1Color}" />
     <SolidColorBrush x:Key="AccentDark2Brush" Color="{Binding Source={StaticResource AccentProvider}, Path=AccentDark2Color}" />
     <SolidColorBrush x:Key="AccentDark3Brush" Color="{Binding Source={StaticResource AccentProvider}, Path=AccentDark3Color}" />
-
 </ResourceDictionary>
